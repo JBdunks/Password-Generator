@@ -83,9 +83,23 @@ var finalPassword = "";
 var length = "";
 
 document.getElementById("generate").onclick = function() {
+  finalPassword = [];
+  password = "";
   length = prompt(
     "How long would you like your password to be?  Please pick between 8 and 128 characters."
   );
+  if (isNaN(length) == true) {
+    alert("Please pick a number next time.");
+    return;
+  }
+  if (length > 128) {
+    alert("Please pick a number between 8 and 128.");
+    return;
+  }
+  if (length < 8) {
+    alert("Please pick a number between 8 and 128.");
+    return;
+  }
   var result = confirm("would you like to include lower-case letters?");
   if (result == true) {
     password = password.concat(lowerCase);
@@ -101,6 +115,10 @@ document.getElementById("generate").onclick = function() {
   var result = confirm("Would you like to include uniqure characters?");
   if (result == true) {
     password = password.concat(characters);
+  }
+  if (password.length < 5) {
+    alert("You need to select at least one property.");
+    return;
   }
 
   for (i = 0; i < length; i++) {
