@@ -92,14 +92,11 @@ document.getElementById("generate").onclick = function() {
     alert("Please pick a number next time.");
     return;
   }
-  if (length > 128) {
+  if (length > 128 || length < 8) {
     alert("Please pick a number between 8 and 128.");
     return;
   }
-  if (length < 8) {
-    alert("Please pick a number between 8 and 128.");
-    return;
-  }
+
   var result = confirm("would you like to include lower-case letters?");
   if (result == true) {
     password = password.concat(lowerCase);
