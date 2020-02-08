@@ -74,7 +74,7 @@ var upperCase = [
 
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-var characters = ["!", "@", "#", "$", "%", "^", "*", "(", ")"];
+var characters = ["!", "@", "#", "$", "%", "^", "*"];
 
 var password = [];
 
@@ -120,7 +120,10 @@ document.getElementById("generate").onclick = function() {
 
   for (i = 0; i < length; i++) {
     x = Math.floor(Math.random() * password.length);
-    finalPassword = finalPassword + password[x];
+    if (password[x] === ",") {
+      finalPassword = finalPassword + password[x + 1];
+    } else finalPassword = finalPassword + password[x];
+
+    document.getElementById("password").innerHTML = finalPassword;
   }
-  document.getElementById("password").innerHTML = finalPassword;
 };
