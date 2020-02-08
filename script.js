@@ -88,7 +88,7 @@ document.getElementById("generate").onclick = function() {
   length = prompt(
     "How long would you like your password to be?  Please pick between 8 and 128 characters."
   );
-  if (isNaN(length) == true) {
+  if (isNaN(length)) {
     alert("Please pick a number next time.");
     return;
   }
@@ -98,19 +98,19 @@ document.getElementById("generate").onclick = function() {
   }
 
   var result = confirm("would you like to include lower-case letters?");
-  if (result == true) {
+  if (result) {
     password = password.concat(lowerCase);
   }
   var result = confirm("Would you like to include upper-case letters?");
-  if (result == true) {
+  if (result) {
     password = password.concat(upperCase);
   }
   var result = confirm("Would you like to include numbers?");
-  if (result == true) {
+  if (result) {
     password = password.concat(numbers);
   }
   var result = confirm("Would you like to include uniqure characters?");
-  if (result == true) {
+  if (result) {
     password = password.concat(characters);
   }
   if (password.length < 5) {
